@@ -70,7 +70,7 @@ def random_sine(batch_size, steps_per_epoch,
             
             # The output of the generator must be ([encoder_input, decoder_input], [decoder_output])
             decoder_input = np.zeros((decoder_output.shape[0], decoder_output.shape[1], 1))
-            yield ([encoder_input, decoder_input], decoder_output)
+            yield((encoder_input, decoder_input), decoder_output)
 
 def plot_prediction(x, y_true, y_pred):
     """Plots the predictions.
