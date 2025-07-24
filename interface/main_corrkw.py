@@ -58,7 +58,7 @@ def predict_one(model, win_df, target_ts):
     if z.numel() > 1: z = z[-1]
     return float(z.item()*OT_STD + OT_MEAN)
 
-st.title("📈 Dashboard Prediksi OT/KW pada Selected Fitur - FEDformer Wavelets (TorchScript)")
+st.title("📈 Dashboard Prediksi OT/KW pada Selected Fitur - FEDformer WEB")
 
 file = st.file_uploader(
     "📂 Upload CSV",

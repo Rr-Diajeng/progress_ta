@@ -27,7 +27,7 @@ def time_features(idx: pd.DatetimeIndex) -> np.ndarray:
 def build_tensors(win_df: pd.DataFrame, target_ts: pd.Timestamp):
 
     arr = win_df[FEATURE_COLS].to_numpy(np.float32)
-    z   = (arr - X_MEAN) / X_STD
+    z   = (arr - X_MEAN) / X_STD # ① normalisasi spt saat training
 
     # 2. buat x_enc, x_dec
     x_enc = z
@@ -58,7 +58,7 @@ def predict_one(model, win_df, target_ts):
     if z.numel() > 1: z = z[-1]
     return float(z.item()*OT_STD + OT_MEAN)
 
-st.title("📈 Dashboard Prediksi OT/GHI pada Selected Fitur - FEDformer Wavelets (TorchScript)")
+st.title("📈 Dashboard Prediksi OT/GHI pada Selected Fitur - Hybrid FEDFormer WEB with LSTM")
 
 file = st.file_uploader(
     "📂 Upload CSV",
